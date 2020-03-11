@@ -1,8 +1,12 @@
+const sequelize = require('../core/sequelize')
+sequelize.import('../models/recipes.js')
 
 module.exports = function (router) {
   router.route('/recipes')
     .get((req, res) => {
-      res.json('All Recipes Ge!')
+      sequelize.query('SELECT * FROM recipes LIMIT 5').spread(function (results, metadata) {
+        res.json(results)
+      })
     })
   router.route('/recipes/:idRecipe')
     .put((req, res) => {

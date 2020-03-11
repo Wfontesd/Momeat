@@ -5,6 +5,7 @@ import 'styles/home.scss'
 
 import Home from './views/Home.vue'
 import Profile from './views/Profile.vue'
+import Register from './views/Register.vue'
 
 Vue.use(VueRouter)
 Vue.use(Buefy)
@@ -16,6 +17,10 @@ const siteRoutes = [{
 {
   path: '/profile/:idUser',
   component: Profile
+},
+{
+  path: '/register',
+  component: Register
 }
 ]
 

@@ -50,8 +50,11 @@ import homeIcon from 'icons/momeat.png'
 module.exports = Vue.component('navigation', {
   data () {
     return {
-      homeIcon_src: homeIcon
+      homeIcon_src: null
     }
+  },
+  created: function () {
+    this.homeIcon_src = homeIcon
   }
 })
 </script>

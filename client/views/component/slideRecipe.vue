@@ -8,11 +8,11 @@
       :interval="10000"
       :repeat="true">
       <b-carousel-item
-        v-for="(carousel, i) in carousels"
+        v-for="(recipe, i) in recipes"
         :key="i">
-        <section :class="`hero is-medium is-${carousel.color} is-bold`">
+        <section :class="`hero is-medium is-primary is-bold`">
           <div class="hero-body has-text-centered">
-            <h1 class="title">{{ carousel.title }}</h1>
+            <h1 class="title">{{ recipe.label }}</h1>
           </div>
         </section>
       </b-carousel-item>
@@ -26,17 +26,14 @@ import Vue from 'vue'
 module.exports = Vue.component('slideRecipe', {
   data () {
     return {
+      recipes: [],
       carousel: 0,
-      animated: 'fade',
-      carousels: [
-        { title: 'Slide 1', color: 'dark' },
-        { title: 'Slide 2', color: 'primary' },
-        { title: 'Slide 3', color: 'info' },
-        { title: 'Slide 4', color: 'success' },
-        { title: 'Slide 5', color: 'warning' },
-        { title: 'Slide 6', color: 'danger' }
-      ]
+      animated: 'fade'
     }
+  },
+  mounted: async function () {
+    const response = await fetch('api/recipes')
+    this.recipes = await response.json()
   }
 })
 </script>

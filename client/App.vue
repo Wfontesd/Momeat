@@ -12,11 +12,6 @@ export default {
   components: {
     slideRecipe,
     navigation
-  },
-  data(){
-    return{
-      homeIcon_src: homeIcon  
-    }
   }
 }
 </script>
