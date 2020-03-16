@@ -3,7 +3,6 @@ const helmet = require('helmet')
 const helmetCsp = require('helmet-csp')
 const webpack = require('webpack')
 const bodyParser = require('body-parser')
-
 const config = require('../config')
 
 const app = express()
